@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:test
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jackson:
+    default-property-inclusion: non_null
+
+logging:
+  level:
+    # Print what JDBC queries are executed
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE

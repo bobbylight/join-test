@@ -1,4 +1,4 @@
-package org.fife.jt;
+package org.fife.jt.core;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
