@@ -1,0 +1,11 @@
+.gradle
+build
+node_modules
+static/
+coverage
+dist
+.idea/
+out/
+*.iml
+npm-debug.log
+.DS_Store
