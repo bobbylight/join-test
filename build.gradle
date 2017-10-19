@@ -6,6 +6,9 @@ buildscript {
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.8.RELEASE'
     }
 }
+plugins {
+    id 'com.ewerk.gradle.plugins.querydsl' version '1.0.9'
+}
 
 apply plugin: 'java'
 apply plugin: 'idea'
@@ -28,7 +31,8 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     compile 'com.querydsl:querydsl-jpa'
-    compile 'com.mysema.querydsl:querydsl-apt'
+    // Trailing 'jpa' triggers JPAAnnotationProcessor to run during builds
+    compile 'com.querydsl:querydsl-apt'
 
     compile 'com.h2database:h2'
 
@@ -45,6 +49,27 @@ task wrapper(type: Wrapper) {
 
 idea {
     module {
+        sourceDirs += file("$projectDir/src/generated/java/")
+        generatedSourceDirs += file("$projectDir/src/generated/java/")
         downloadSources = true
+    }
+}
+
+querydsl {
+    jpa = true
+    querydslSourcesDir = "$projectDir/src/generated/java"
+}
+
+checkstyle {
+    // Exclude sourceSets.querydsl to avoid errors triggered by checkstyle
+    sourceSets = [ sourceSets.main, sourceSets.test ]
+}
+
+sourceSets {
+    main {
+        java {
+            // Needed for IntelliJ to not be upset about dependencies in querydsl sourceSet (?)
+            srcDir "$projectDir/src/generated/java"
+        }
     }
 }

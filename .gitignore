@@ -6,6 +6,7 @@ coverage
 dist
 .idea/
 out/
+generated/
 *.iml
 npm-debug.log
 .DS_Store

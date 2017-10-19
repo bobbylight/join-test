@@ -1,6 +1,7 @@
 package org.fife.jt.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.fife.jt.ModelConstants;
 
 import javax.persistence.*;
 
@@ -16,7 +17,7 @@ public class OneToOneChild2 {
     @JoinColumn(name = "parent_id", referencedColumnName = "id", nullable = false)
     private Parent parent;
 
-    @Column(name = "name", length = 30)
+    @Column(name = "name", length = ModelConstants.COLUMN_LENGTH_SHORT)
     private String name;
 
     public long getId() {

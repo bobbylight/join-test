@@ -1,6 +1,5 @@
 package org.fife.jt.services;
 
-import com.querydsl.core.types.Predicate;
 import org.fife.jt.model.Parent;
 import org.fife.jt.repositories.ParentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +22,7 @@ public class ParentService {
     }
 
     public List<Parent> getAllContainingChildWithId(long childId) {
-
-        Predicate predicate = Predicate
+        return null;
     }
 
     public Parent getParent(long id) {
