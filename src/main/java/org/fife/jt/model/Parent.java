@@ -12,16 +12,12 @@ import javax.persistence.*;
 public class Parent {
 
     @Id
-    @Column(name = "id", updatable = false)
+    @Column(name = "id", nullable = false, updatable = false)
     private long id;
 
     @OneToOne(mappedBy = "parent", cascade = CascadeType.ALL)
     @JsonManagedReference
     private OneToOneChild oneToOneChild;
-
-    @OneToOne(mappedBy = "parent", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private OneToOneChild2 oneToOneChild2;
 
     public long getId() {
         return id;

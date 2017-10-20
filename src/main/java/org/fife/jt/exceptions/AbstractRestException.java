@@ -7,10 +7,15 @@ abstract class AbstractRestException extends RuntimeException {
     private HttpStatus status;
 
     AbstractRestException(HttpStatus status) {
+        this(status, null);
+    }
+
+    AbstractRestException(HttpStatus status, String message) {
+        super(message);
         this.status = status;
     }
 
-    public HttpStatus getStatus() {
+    HttpStatus getStatus() {
         return status;
     }
 }

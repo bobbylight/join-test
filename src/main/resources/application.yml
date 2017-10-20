@@ -10,6 +10,7 @@ spring:
 
 logging:
   level:
+    org.fife.jt: DEBUG
     # Print what JDBC queries are executed
     org.hibernate.SQL: DEBUG
     org.hibernate.type: TRACE
